@@ -1,11 +1,11 @@
 package com.centroinformacion.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,7 @@ import com.centroinformacion.util.AppSettings;
 
 
 @RestController
-@RequestMapping("/url/Ejemplo")
+@RequestMapping("/url/ejemplo")
 @CrossOrigin(origins = AppSettings.URL_CROSS_ORIGIN)
 public class EjemploController {
 
@@ -36,8 +36,13 @@ public class EjemploController {
 	
 	@PostMapping
 	@ResponseBody
-	public ResponseEntity<?> inserta(@RequestBody Ejemplo obj, Errors errors){
+	public ResponseEntity<?> inserta(@RequestBody Ejemplo obj){
 		HashMap<String, Object> salida = new HashMap<>();
+		
+		obj.setFechaActualizacion(new Date());
+		obj.setFechaRegistro(new Date());
+		obj.setEstado(AppSettings.ACTIVO);
+		
 		
 		Ejemplo objSalida = EjemploService.insertaActualizaEjemplo(obj);
 		if (objSalida == null) {
