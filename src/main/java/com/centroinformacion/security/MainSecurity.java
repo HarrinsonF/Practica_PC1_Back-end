@@ -55,7 +55,7 @@ public class MainSecurity   {
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(
         		auth -> auth.requestMatchers("/url/auth/**").permitAll()
-        		// .requestMatchers("/url/**").permitAll()
+        		 .requestMatchers("/url/**").permitAll()
         .anyRequest()
         .authenticated());
         
