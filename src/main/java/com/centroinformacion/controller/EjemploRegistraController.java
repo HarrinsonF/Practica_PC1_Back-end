@@ -22,7 +22,7 @@ import com.centroinformacion.util.AppSettings;
 @RestController
 @RequestMapping("/url/ejemplo")
 @CrossOrigin(origins = AppSettings.URL_CROSS_ORIGIN)
-public class EjemploController {
+public class EjemploRegistraController {
 
 	@Autowired
 	private EjemploService EjemploService;
