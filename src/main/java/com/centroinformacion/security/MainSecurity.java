@@ -53,9 +53,9 @@ public class MainSecurity   {
     	http.csrf(csrf -> csrf.disable())
     	.exceptionHandling(exp -> exp.authenticationEntryPoint(jwtEntryPoint))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/url/auth/**").permitAll()
-        .requestMatchers("/url/**").permitAll()
+        .authorizeHttpRequests(
+        		auth -> auth.requestMatchers("/url/auth/**").permitAll()
+        		// .requestMatchers("/url/**").permitAll()
         .anyRequest()
         .authenticated());
         

@@ -1,6 +1,7 @@
 package com.centroinformacion.security;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +50,16 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 	}
 
 	private String getToken(HttpServletRequest request) {
+		Enumeration<String> headerNames = request.getHeaderNames();
+
+	    if (headerNames != null) {
+	            while (headerNames.hasMoreElements()) {
+	            	String headerName = headerNames.nextElement();
+	            	logger.info("Header: >> " + headerName + " >> " + request.getHeader(headerName));
+	            }
+	    }
 		String header = request.getHeader("Authorization");
+		logger.info(">>> header >>> " + header);
 		if (header != null && header.startsWith("Bearer"))
 			return header.replace("Bearer ", "");
 		return null;
