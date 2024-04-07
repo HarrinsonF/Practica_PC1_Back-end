@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "usuario_has_rol")
+@Table(name = "usuario_tiene_rol")
 public class UsuarioHasRol {
 
 	@EmbeddedId

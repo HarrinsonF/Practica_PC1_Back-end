@@ -2,6 +2,9 @@ package com.centroinformacion.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -12,10 +15,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +30,7 @@ public class Proveedor {
 	private String razonsocial;
 	private String ruc;
 	private String direccion;
+	private String telefono;
 	private String celular;
 	private String contacto;
 	private int estado;
@@ -62,5 +62,6 @@ public class Proveedor {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUsuarioActualiza")
 	private Usuario usuarioActualiza;
+	
 	
 }

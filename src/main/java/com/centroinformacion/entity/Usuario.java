@@ -14,12 +14,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
-@ToString
 @Table(name = "usuario")
 public class Usuario {
 
@@ -44,6 +42,10 @@ public class Usuario {
 	private Date fechaNacimiento;
 	
 	public String getNombreCompleto() {
-		return nombres.concat(" ").concat(apellidos);
+		if (nombres != null && apellidos != null) {
+			return nombres.concat(" ").concat(apellidos);	
+		}else {
+			return ""; 
+		}
 	}
 }
