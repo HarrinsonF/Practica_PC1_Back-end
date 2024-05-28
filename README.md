@@ -1,14 +1,4 @@
 # Proyecto Java Backend- Spring
 
-## Docente ✒️
-
-* **Jorge Jacinto **
-
-## Grupo  ✒️
-* 
-* 
-* 
-* 
-* 
-* 
-
+*Alumno: Flores Bernuy Harrinson York Angel*
+Grupo -5
